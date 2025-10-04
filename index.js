@@ -53,8 +53,8 @@ async function handleEmailReq(req, res) {
   try {
 
     await resend.emails.send({
-      from: 'onboarding@resend.dev', //Required for sending without owning domain
-      to: process.env.EMAIL_USER,
+      from: process.env.EMAIL_FROM, //'onboarding@resend.dev' required for sending without verified domain
+      to: process.env.EMAIL_TO,
       subject: `📬 Portfolio Contact from ${name}`,
       text: `${message}\n\n📧 Email: ${email}\n📱 Phone: ${phone}`,
       replyTo: email
